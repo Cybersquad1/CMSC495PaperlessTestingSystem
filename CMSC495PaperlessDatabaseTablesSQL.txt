@@ -1,0 +1,124 @@
+
+// Create Choices table 
+
+CREATE TABLE `Choices` (
+ `choiceID` int(8) NOT NULL,
+ `choiceStatement` text NOT NULL,
+ `answer` text NOT NULL,
+ `questionID` int(8) NOT NULL,
+ PRIMARY KEY (`choiceID`),
+ KEY `questionID` (`questionID`),
+ CONSTRAINT `choiceQuestionID_fk` FOREIGN KEY (`questionID`) REFERENCES `Question` (`questionID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+
+// Create Course table 
+CREATE TABLE `Course` (
+ `courseID` int(8) NOT NULL AUTO_INCREMENT,
+ `name` varchar(30) NOT NULL,
+ `code` varchar(5) NOT NULL,
+ `number` int(4) NOT NULL,
+ `description` tinytext NOT NULL,
+ PRIMARY KEY (`courseID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+
+// Create CourseTaken table
+
+CREATE TABLE `CourseTaken` (
+ `studentID` int(8) NOT NULL,
+ `courseTaughtID` int(8) NOT NULL,
+ `registrationDate` date NOT NULL,
+ PRIMARY KEY (`studentID`),
+ UNIQUE KEY `courseTaughtID` (`courseTaughtID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+
+// Create CourseTaught table
+
+CREATE TABLE `CourseTaught` (
+ `professorID` int(8) NOT NULL,
+ `CourseID` int(8) NOT NULL,
+ `CourseTaughtID` int(8) NOT NULL,
+ `date` date NOT NULL,
+ `numberOfStudents` int(11) NOT NULL,
+ PRIMARY KEY (`professorID`),
+ KEY `CourseID` (`CourseID`),
+ KEY `CourseTaughtID` (`CourseTaughtID`),
+ CONSTRAINT `CourseID_fk` FOREIGN KEY (`CourseID`) REFERENCES `Course` (`courseID`),
+ CONSTRAINT `CourseTaught_fk` FOREIGN KEY (`CourseTaughtID`) REFERENCES `CourseTaken` (`courseTaughtID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+
+// Create Question table
+
+CREATE TABLE `Question` (
+ `questionID` int(8) NOT NULL,
+ `testID` int(8) NOT NULL,
+ `category` varchar(30) NOT NULL,
+ `questionStatement` text NOT NULL,
+ PRIMARY KEY (`questionID`),
+ KEY `testID` (`testID`),
+ CONSTRAINT `questionTestID_fk` FOREIGN KEY (`testID`) REFERENCES `Test` (`testID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+
+// Create StudentAnswer table
+
+CREATE TABLE `StudentAnswer` (
+ `questionID` int(8) NOT NULL,
+ `studentID` int(8) NOT NULL,
+ `testSessionID` int(8) NOT NULL,
+ `studentAnswer` text NOT NULL,
+ PRIMARY KEY (`questionID`,`studentID`,`testSessionID`),
+ KEY `stuAnswerStudentID_fk` (`studentID`),
+ KEY `stuAnswerTestSessionID_fk` (`testSessionID`),
+ CONSTRAINT `stuAnswerQuestionID_fk` FOREIGN KEY (`questionID`) REFERENCES `Question` (`questionID`),
+ CONSTRAINT `stuAnswerStudentID_fk` FOREIGN KEY (`studentID`) REFERENCES `CourseTaken` (`studentID`),
+ CONSTRAINT `stuAnswerTestSessionID_fk` FOREIGN KEY (`testSessionID`) REFERENCES `TestSession` (`testSessionID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+
+// Create Test table
+
+CREATE TABLE `Test` (
+ `testID` int(8) NOT NULL,
+ `courseTaughtID` int(8) NOT NULL,
+ `professorID` int(8) NOT NULL,
+ `timeLength` time NOT NULL,
+ `dateCreated` date NOT NULL,
+ `status` tinyint(1) NOT NULL,
+ `courseID` int(8) NOT NULL,
+ PRIMARY KEY (`testID`),
+ KEY `courseID` (`courseID`),
+ KEY `courseTaughtID` (`courseTaughtID`),
+ KEY `professorID` (`professorID`),
+ CONSTRAINT `courseTaughtID_fk` FOREIGN KEY (`courseTaughtID`) REFERENCES `CourseTaken` (`courseTaughtID`),
+ CONSTRAINT `professorID_fk` FOREIGN KEY (`professorID`) REFERENCES `CourseTaught` (`professorID`),
+ CONSTRAINT `testcourseID_fk` FOREIGN KEY (`courseID`) REFERENCES `Course` (`courseID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+
+// Create TestSession table
+
+CREATE TABLE `TestSession` (
+ `testSessionID` int(8) NOT NULL,
+ `studentID` int(8) NOT NULL,
+ `courseID` int(8) NOT NULL,
+ `testID` int(8) NOT NULL,
+ `grade` float NOT NULL,
+ PRIMARY KEY (`testSessionID`),
+ KEY `studentID` (`studentID`),
+ KEY `courseID` (`courseID`),
+ KEY `testID` (`testID`),
+ CONSTRAINT `sessionCourseID_fk` FOREIGN KEY (`courseID`) REFERENCES `Course` (`courseID`),
+ CONSTRAINT `sessionStudentID_fk` FOREIGN KEY (`studentID`) REFERENCES `CourseTaken` (`studentID`),
+ CONSTRAINT `sessionTestID_fk` FOREIGN KEY (`testID`) REFERENCES `Test` (`testID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+
+// Create user table
+
+CREATE TABLE `user` (
+ `userID` int(8) NOT NULL AUTO_INCREMENT,
+ `email` varchar(30) NOT NULL,
+ `password` varchar(30) NOT NULL,
+ `firstName` varchar(30) NOT NULL,
+ `lastName` varchar(30) NOT NULL,
+ `userType` int(1) NOT NULL COMMENT '1 = professor, 2 = student',
+ PRIMARY KEY (`userID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+
+
