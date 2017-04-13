@@ -122,3 +122,9 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1
 
 
+// Entered Test User Data to test the login functionality
+// The value 0 for user type stands for professors, 1 = students
+
+INSERT INTO `holykemh_paperlessDB`.`user` (`userID`, `email`, `password`, `firstName`, `lastName`, `userType`) VALUES ('1', 'testUser1@test.com', 'test123', 'testFirstName', 'testLastName', '0');
+
+
