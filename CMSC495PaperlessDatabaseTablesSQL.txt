@@ -125,6 +125,9 @@ CREATE TABLE `user` (
 // Entered Test User Data to test the login functionality
 // The value 1 for user type stands for professors, 2 = students
 
+// Insert Professor Test Credentials
 INSERT INTO `holykemh_paperlessDB`.`user` (`userID`, `email`, `password`, `firstName`, `lastName`, `userType`) VALUES ('1', 'testUser1@test.com', 'test123', 'testFirstName', 'testLastName', '1');
 
+// Insert Student Test Credentials
+INSERT INTO `holykemh_paperlessDB`.`user` (`userID`, `email`, `password`, `firstName`, `lastName`, `userType`) VALUES ('2', 'testStudent1@test.com', 'testStu', 'StudentFirstName', 'StudentLastName', '2');
 
