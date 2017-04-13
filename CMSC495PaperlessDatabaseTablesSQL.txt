@@ -123,8 +123,8 @@ CREATE TABLE `user` (
 
 
 // Entered Test User Data to test the login functionality
-// The value 0 for user type stands for professors, 1 = students
+// The value 1 for user type stands for professors, 2 = students
 
-INSERT INTO `holykemh_paperlessDB`.`user` (`userID`, `email`, `password`, `firstName`, `lastName`, `userType`) VALUES ('1', 'testUser1@test.com', 'test123', 'testFirstName', 'testLastName', '0');
+INSERT INTO `holykemh_paperlessDB`.`user` (`userID`, `email`, `password`, `firstName`, `lastName`, `userType`) VALUES ('1', 'testUser1@test.com', 'test123', 'testFirstName', 'testLastName', '1');
 
 
