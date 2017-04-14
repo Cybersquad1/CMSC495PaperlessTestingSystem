@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Cources Teaching</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta name="description" content="Registration / Login" />
+        <meta name="keywords" content="html5, css3, form, switch, animation, :target, pseudo-class" />
+        <meta name="author" content="onlinetestingsystem" />
+        <link rel="shortcut icon" href="../favicon.ico"> 
+        <link rel="stylesheet" type="text/css" href="css/onlinetestingsystem.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="css/animate-custom.css" />
+    </head>
+    <body>
+        <div class="container">
+            <!-- onlinetestingsystem top bar -->
+            <div class="onlinetestingsystem-top">
+                <span class="right">
+                    <a href="index.html">
+                        <strong>Back to the Online System Home</strong>
+                    </a>
+                </span>
+                <div class="clr"></div>
+            </div><!--/ onlinetestingsystem top bar -->
+            <header>
+                <h1>Cources Teaching<span> Online Testing System Provide</span></h1>
+                <nav class="onlinetestingsystem-demos">
+                    <!-- anything that can fit here -->
+                </nav>
+            </header>
+
+            
+            <section>               
+                <div id="container_demo" >
+                    <!-- hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  -->
+                   <!--  <a class="hiddenanchor" id="toregister"></a>
+                    <a class="hiddenanchor" id="tologin"></a> -->
+                    <div id="wrapper">
+                        <div id="login" class="animate form">
+                            <form  action="choosecources.php" autocomplete="on"> 
+                                <h1>Cource(s)</h1> 
+
+                                <p> 
+                                <input type="checkbox" name="subject" value="geokeeping">
+                                    <label for="geographykeeping"> Geography </label>
+                                    <!-- <input id="username" name="username" required="required" type="text" placeholder="myusername or onlinetestingsystem@mail.com"/> -->
+                                </p>
+
+
+                                <p class="keeplogin"> 
+                                    <input type="checkbox" name="loginkeeping" id="loginkeeping" value="hiskeeping" /> 
+                                    <label for="historykeeping">History </label>
+                                </p>
+
+                                <p class="keeplogin"> 
+                                    <input type="checkbox" name="chemistrykeeping" id="chemistrykeeping" value="chemkeeping" /> 
+                                    <label for="chemistrykeeping">Chemistry </label>
+                                </p>
+
+                                 <p class="keeplogin"> 
+                                    <input type="checkbox" name="mathskeeping" id="mathskeeping" value="mathkeeping" /> 
+                                    <label for="chemistrykeeping">Maths </label>
+                                </p>
+
+                                <p class="login button"> 
+                                    <input type="submit" value="Submit" /> 
+                                </p>
+                            </form>
+                        </div>
+                        
+                    </div>
+                </div>  
+            </section>
+
+        </div>
+    </body>
+</html>
