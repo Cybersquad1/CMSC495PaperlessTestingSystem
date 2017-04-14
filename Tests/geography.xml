@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<test>
+  <title>Geography Test</title>
+    <questions>
+    
+      <question>
+        <quizquestion>Instrument used to measure earthquake is known as?</quizquestion>
+        <answer> seismograph</answer>
+        <answer> quake meter</answer>
+        <answer>barometer</answer>
+        <answer> none of the above</answer>
+        <correct>1</correct>
+      </question>
+      
+      <question>
+        <quizquestion> Magnitude of energy released by an earthquake is calculated using</quizquestion>
+        <answer>Earthquake scale</answer>
+        <answer>Seismic scale</answer>
+        <answer>Richter scale</answer>
+        <answer>Temblor scal</answer>
+        <correct>3</correct>
+      </question>
+      		
+      <question>
+        <quizquestion>The point within the Earth where earthquakes originate is?</quizquestion>
+        <answer>comma</answer>
+        <answer>origin</answer>
+        <answer>epicenter</answer>
+        <answer>focus</answer>
+        <correct>4</correct>
+      </question>
+      		
+      <question>
+        <quizquestion>Place directly above focus on Earth's surface is known as ?</quizquestion>
+        <answer>strike</answer>
+        <answer>comma</answer>
+        <answer>epicenter</answer>
+        <answer>origin</answer>
+        <correct>3</correct>
+      </question>	
+	  
+	  <question>
+        <quizquestion>In general, the most destructive earthquake waves are the ____?</quizquestion>
+        <answer>P waves</answer>
+        <answer>S waves</answer>
+        <answer>Surface waves</answer>
+        <answer>All of the above</answer>
+        <correct>3</correct>
+      </question>
+
+      	
+    </questions>
+</test>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<test>
+  <title>Chemistry Test</title>
+    <questions>
+    
+      <question>
+        <quizquestion>Which of the following has a positive charge?</quizquestion>
+        <answer>proton</answer>
+        <answer>neutron</answer>
+        <answer>anion</answer>
+        <answer>electron</answer>
+        <correct>1</correct>
+      </question>
+      
+      <question>
+        <quizquestion>The neutral atoms of all of the isotopes of the same element have?</quizquestion>
+        <answer>different numbers of protons.</answer>
+        <answer>equal numbers of neutrons</answer>
+        <answer>the same number of electrons.</answer>
+        <answer>the same mass numbers.</answer>
+        <correct>3</correct>
+      </question>
+      		
+      <question>
+        <quizquestion>The maximum number of electrons that can be accommodated in a sublevel for which l = 3 is?</quizquestion>
+        <answer>2</answer>
+        <answer>10</answer>
+        <answer>6</answer>
+        <answer>14</answer>
+        <correct>4</correct>
+      </question>
+      		
+      <question>
+        <quizquestion>How many p electrons are there in an atom of rubidium?</quizquestion>
+        <answer>12</answer>
+        <answer>18</answer>
+        <answer>24</answer>
+        <answer>9</answer>
+        <correct>2</correct>
+      </question>	
+	  
+      	
+    </questions>
+</test>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<test>
+  <title>Maths Test </title>
+    <questions>
+    
+      <question>
+        <quizquestion>The average of first 50 natural numbers is?</quizquestion>
+        <answer>25.30</answer>
+        <answer>25.5</answer>
+        <answer>25.00</answer>
+        <answer>12.25</answer>
+        <correct>2</correct>
+      </question>
+      
+      <question>
+        <quizquestion>A fraction which bears the same ratio to 1/27 as 3/11 bear to 5/9 is equal to?</quizquestion>
+        <answer>1/55</answer>
+        <answer>55</answer>
+        <answer>3/11</answer>
+        <answer>1/11</answer>
+        <correct>1</correct>
+      </question>
+
+      <question>
+        <quizquestion>The number of 3-digit numbers divisible by 6, is?</quizquestion>
+        <answer>149</answer>
+        <answer>166</answer>
+        <answer>150</answer>
+        <answer>151</answer>
+        <correct>3</correct>
+      </question>
+      		
+      <question>
+        <quizquestion>What is 1004 divided by 2?</quizquestion>
+        <answer>52</answer>
+        <answer>502</answer>
+        <answer>520</answer>
+        <answer>5002</answer>
+        <correct>2</correct>
+      </question>	
+	 	    
+      	
+    </questions>
+</test>
