@@ -1,118 +1,73 @@
-package con.paperless.testing.controller;
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.paperless.paperlesstestingsystem;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
+@WebServlet(urlPatterns = {"/testcreation","/questionsqty","/truefalse","/singlechoice"})
 
-import con.paperless.testing.Test;
-import con.paperless.testing.TestQuestions;
-
-/**
- * Servlet implementation class ExamController
- */
-@WebServlet("/test")
 public class TestController extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-    
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doPost(request,response);
-	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub	
-		boolean finish=false;	
-		HttpSession session=request.getSession();		
-		try
-		{
-			if(session.getAttribute("currentExam")==null)
-		  {  session=request.getSession(); 	
-		     String selectedTest=(String)request.getSession().getAttribute("test"); 
-		     System.out.println("Setting Exam "+selectedTest);
-			 Test newTest = new Test(selectedTest);		  
-			 session.setAttribute("currentExam",newTest);
-			 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss a");
-				Date date = new Date();
-				String started=dateFormat.format(date);
-			  session.setAttribute("started",started);
-		  }
-		
-		}catch(Exception e){e.printStackTrace();}
-		
-        Test test = (Test)request.getSession().getAttribute("currentExam");		
+    @Override
+    public void doGet(HttpServletRequest request,
+            HttpServletResponse response)
+            throws IOException, ServletException {
+
+        process(request, response);
+    }
+
+    @Override
+    public void doPost(HttpServletRequest request,
+            HttpServletResponse response)
+            throws IOException, ServletException {
+
+        process(request, response);
+    }
+
+    public void process(HttpServletRequest request,
+            HttpServletResponse response)
+            throws IOException, ServletException {
+         String applicationContextPath = request.getContextPath();
+        if (request.getRequestURI().equals(applicationContextPath + "/testcreation")) {
+            RequestDispatcher dispatcher = request
+                    .getRequestDispatcher("jsp/professor-questionstypepg.jsp");
+            dispatcher.forward(request, response);
+
+        }  else if (request.getRequestURI().equals(applicationContextPath + "/truefalse")) {
+            RequestDispatcher dispatcher = request
+                    .getRequestDispatcher("jsp/truefalse-form.jsp");
+            dispatcher.forward(request, response);
+
+        } else if (request.getRequestURI().equals(applicationContextPath + "/singlechoice")) {
+            RequestDispatcher dispatcher = request
+                    .getRequestDispatcher("jsp/singlechoice-form.jsp");
+            dispatcher.forward(request, response);
+
+        } 
         
-        if(test.currentQuestion==0){	
-        	test.setQuestion(test.currentQuestion);
-		    TestQuestions t=test.questionList.get(test.currentQuestion);	
-			session.setAttribute("quest",t);
-        }
-			
-        String action=request.getParameter("action");
-		
-		String radio=request.getParameter("answer");
-		int selectedRadio=-1;
-		test.selections.put(test.currentQuestion, selectedRadio);
-		if("1".equals(radio))
-		{
-			selectedRadio=1;
-			test.selections.put(test.currentQuestion, selectedRadio);
-			System.out.println("You selected "+selectedRadio);
-		}
-		else if("2".equals(radio))
-		{
-			selectedRadio=2;
-			test.selections.put(test.currentQuestion, selectedRadio);
-			System.out.println("You selected "+selectedRadio);
-		}
-		else if("3".equals(radio))
-		{
-			selectedRadio=3;
-			test.selections.put(test.currentQuestion, selectedRadio);
-			System.out.println("You selected "+selectedRadio);
-		}
-		else if("4".equals(radio))
-			{
-				selectedRadio=4;
-				test.selections.put(test.currentQuestion, selectedRadio);
-				System.out.println("You selected "+selectedRadio);
-			}
-			
-						
-			if("Next".equals(action)){
-				test.currentQuestion++;
-				test.setQuestion(test.currentQuestion);
-			    TestQuestions t = test.questionList.get(test.currentQuestion);	
-			  	session.setAttribute("quest",t);
-			}
-			else if("Previous".equals(action))
-			{   System.out.println("You clicked Previous Button");
-			test.currentQuestion--;
-			test.setQuestion(test.currentQuestion);
-			    TestQuestions t = test.questionList.get(test.currentQuestion);	
-				session.setAttribute("quest",t);
-			}
-			else if("Finish Exam".equals(action))
-			{   finish=true;
-				int result=test.calculateResult(test);				
-				request.setAttribute("result",result);
-				request.getSession().setAttribute("currentExam",null);
-				request.getRequestDispatcher("/WEB-INF/jsp/result.jsp").forward(request,response);
-				
-			}
-						
-		if(finish!=true){
-		request.getRequestDispatcher("/WEB-INF/jsp/exam.jsp").forward(request,response);
-		}
-		
-	}
+        
+        String uri = request.getRequestURI();
+        int lastIndex = uri.lastIndexOf("/");
+        String action = uri.substring(lastIndex + 1);
+        
+        // execute an action
+        String dispatchUrl = null;
+        if ("truefalse".equals(action)) { 
+            int qty = Integer.parseInt(request.getParameter("questionsqty"));
+            
+        } 
 
+    }
 }
