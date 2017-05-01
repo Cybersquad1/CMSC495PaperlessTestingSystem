@@ -14,5 +14,6 @@
     <body>
         <a href='${pageContext.request.contextPath}/studentlogin'>Student portal!</a>
         <a href='${pageContext.request.contextPath}/professorlogin'>Professor portal!</a>
+         <a href='${pageContext.request.contextPath}/studentlogin2'>Test</a>
     </body>
 </html>

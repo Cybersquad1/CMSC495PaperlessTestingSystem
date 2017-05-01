@@ -10,6 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Student Login</title>
+         <link rel="stylesheet" href="${pageContext.request.contextPath}/style">
     </head>
     <body>
          <form  name="regForm"  method="post" action="sloginaction">

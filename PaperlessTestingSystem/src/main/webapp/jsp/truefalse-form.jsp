@@ -24,8 +24,8 @@
                 <tr>
                     <td>Answer</td>
                     <td>
-                        <input type="radio" name="meal" value="vegan" id="vegan-id">True<br>
-                        <input type="radio" name="meal" value="vegetarian" id="vegetarian-id">False<br>                    
+                        <input type="radio" name="trueoption"  >True<br>
+                        <input type="radio" name="falseoption"  >False<br>                    
                     </td>
                 </tr>
                 <tr>

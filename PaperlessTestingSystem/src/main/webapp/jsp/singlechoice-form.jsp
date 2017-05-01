@@ -39,7 +39,7 @@
                 </tr>
                 <tr>
                             <td>Answer</td>
-                            <td><select name="state" id="lstate-id">
+                            <td><select name="answer" >
                                     <option value="-1" selected>--select--</option>
                                     <option>1</option>
                                     <option>2</option>

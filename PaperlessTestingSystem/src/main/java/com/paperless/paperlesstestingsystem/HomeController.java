@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author georgy
  */
-@WebServlet(urlPatterns = {"/studentlogin", "/studentsignup","/sloginaction","/ssignupaction","/professorlogin", "/professorsignup", "/psignupaction","/ploginaction","/login", "/sddfgin", "/takeExam", "/signup"})
+@WebServlet(urlPatterns = {"/styles","/style","/studentlogin2","/studentlogin", "/studentsignup","/sloginaction","/ssignupaction","/professorlogin", "/professorsignup", "/psignupaction","/ploginaction","/login", "/sddfgin", "/takeExam", "/signup"})
 public class HomeController extends HttpServlet {
 
     Users user;
@@ -63,6 +63,18 @@ public class HomeController extends HttpServlet {
         } else if (request.getRequestURI().equals(applicationContextPath + "/professorsignup")) {
             RequestDispatcher dispatcher = request
                     .getRequestDispatcher("jsp/professor-signup.jsp");
+            dispatcher.forward(request, response);
+        }  else if (request.getRequestURI().equals(applicationContextPath + "/studentlogin2")) {
+            RequestDispatcher dispatcher = request
+                    .getRequestDispatcher("jsp/student-loginpg2.jsp");
+            dispatcher.forward(request, response);
+        } else if (request.getRequestURI().equals(applicationContextPath + "/style")) {
+            RequestDispatcher dispatcher = request
+                    .getRequestDispatcher("jsp/style.css");
+            dispatcher.forward(request, response);
+        } else if (request.getRequestURI().equals(applicationContextPath + "/styles")) {
+            RequestDispatcher dispatcher = request
+                    .getRequestDispatcher("jsp/styles.css");
             dispatcher.forward(request, response);
         }
 
